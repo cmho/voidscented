@@ -6,5 +6,5 @@ get '/' do
 	data = open('https://dl.dropboxusercontent.com/u/2258962/voidscented.txt') { |io| io.read }
 	generator = MarkovChains::Generator.new(data, 2)
 	text = generator.get_sentences(3).join("<br />")
-	erb text
+	erb "<div class='text'>#{text}</div>"
 end
